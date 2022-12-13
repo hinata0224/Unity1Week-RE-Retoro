@@ -9,7 +9,6 @@ namespace Tetris_Block
 
         private Transform[,] grid = new Transform[width, height];
 
-
         public void SetGrid(Transform block)
         {
             Vector3 pos = block.position;
@@ -36,6 +35,11 @@ namespace Tetris_Block
             }
 
             return true;
+        }
+
+        public int GetWidth()
+        {
+            return width;
         }
 
     }

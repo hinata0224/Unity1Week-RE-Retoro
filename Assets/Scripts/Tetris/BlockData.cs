@@ -6,16 +6,17 @@ using UnityEngine.InputSystem;
 
 namespace Tetris_Block
 {
-
     public class BlockData : MonoBehaviour
     {
         [SerializeField, Header("置いた時の待機時間")]
         private int locateTime = 1;
 
-        private int width = 10;
+        private int width;
 
         private float x_value;
         private float y_value;
+
+        private Transform grid;
 
         [SerializeField, Header("子オブジェクトのブロック")]
         private List<GameObject> blocks;
@@ -26,7 +27,6 @@ namespace Tetris_Block
 
         private BlockModel model = new();
         private TimerModel timer = new();
-
 
         void Start()
         {
@@ -53,13 +53,10 @@ namespace Tetris_Block
                     timer.StartTimer(locateTime);
                     move = true;
                 }).AddTo(this);
-
-
         }
 
         private void MoveBlock()
         {
-            Debug.Log("AD");
             if (x_value != 0)
             {
                 move = false;
@@ -102,7 +99,10 @@ namespace Tetris_Block
                 timer.EndTimer();
                 SetPosition();
             }
-            timer.StartTimer(locateTime);
+            else
+            {
+                timer.StartTimer(locateTime);
+            }
         }
 
 
@@ -118,13 +118,19 @@ namespace Tetris_Block
                     return false;
                 }
 
-                if (model.CheckGrid(roundX, roundY))
+                if (!model.CheckGrid(roundX, roundY))
                 {
                     return false;
                 }
             }
 
             return true;
+        }
+
+        public void Init(Transform gridObj)
+        {
+            grid = gridObj;
+            width = model.GetWidth();
         }
 
         public void InputValue(InputAction.CallbackContext context)
@@ -141,7 +147,6 @@ namespace Tetris_Block
                 }
                 if (context.ReadValue<Vector2>().y > 0)
                 {
-                    Debug.Log("WS");
                     y_value = context.ReadValue<Vector2>().y;
                 }
                 else
@@ -163,7 +168,7 @@ namespace Tetris_Block
                     for (int i = 0; i < blocks.Count; i++)
                     {
                         model.SetGrid(blocks[i].transform);
-                        blocks[i].transform.parent = null;
+                        blocks[i].transform.parent = grid;
                     }
 
                     DestroyObj();
