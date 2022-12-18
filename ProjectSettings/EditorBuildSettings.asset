@@ -4,5 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 29685440f5269dc459c8f2090aef063c
+  - enabled: 1
+    path: Assets/Scenes/Tetris.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/PacMan.unity
+    guid: 0a9b1ca40758ab346b60d109eb516ec2
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 505b05a335de64c48b3c17fb983df9c4, type: 2}

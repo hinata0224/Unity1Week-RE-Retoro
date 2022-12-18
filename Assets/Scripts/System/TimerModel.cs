@@ -9,14 +9,14 @@ namespace Other_System
 {
     public class TimerModel
     {
-        private Subject<bool> endTimer = new Subject<bool>();
+        private Subject<Unit> endTimer = new Subject<Unit>();
 
         private IDisposable clock;
 
-        public void StartTimer(int count)
+        public void StartTimer(float count)
         {
             clock = Observable.Timer(TimeSpan.FromSeconds(count))
-                .Subscribe(x => endTimer.OnNext(true));
+                .Subscribe(x => endTimer.OnNext(Unit.Default));
         }
 
         public void StopTimer()
@@ -30,7 +30,7 @@ namespace Other_System
             endTimer.Dispose();
         }
 
-        public IObservable<bool> GetEndTimer()
+        public IObservable<Unit> GetEndTimer()
         {
             return endTimer;
         }
