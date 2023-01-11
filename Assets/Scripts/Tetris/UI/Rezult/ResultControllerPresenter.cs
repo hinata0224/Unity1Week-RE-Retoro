@@ -17,8 +17,11 @@ namespace Tetris_UI
         void Start()
         {
             block.GetGameOver()
-                .First()
-                .Subscribe(x => controller.GameOver())
+                .Subscribe(x => 
+                {
+                    Debug.Log("ssss");
+                    controller.GameOver(); 
+                })
                 .AddTo(block);
         }
     }

@@ -133,7 +133,9 @@ namespace Tetris_Block
         {
             grid = gridObj;
             locateTime= interval;
+            
             timer.StartTimer(locateTime);
+
             timer.GetEndTimer()
                 .Subscribe(x => DownBlock())
                 .AddTo(this);
@@ -161,9 +163,13 @@ namespace Tetris_Block
                     timer.StartTimer(locateTime);
                     move = true;
                 }).AddTo(this);
+
             if (!ValidMovement())
             {
-                gameOver.OnNext(Unit.Default);
+                //Debug.Log("oe");
+                Debug.Log(transform.position);
+                ResultController.GameOverStart();
+                //gameOver.OnNext(Unit.Default);
             }
         }
 
@@ -176,6 +182,7 @@ namespace Tetris_Block
 
         public void SetPosition()
         {
+            gameOver.Dispose();
             timer.EndTimer();
             List<int> scoreCount = new();
             for (int i = 0; i < blocks.Count; i++)
@@ -208,8 +215,9 @@ namespace Tetris_Block
                     ScoreModel.AddScore();
                 }
             }
-
             nextCreate.OnNext(Unit.Default);
+            DestroyObj();
+
         }
 
         public void DestroyObj()

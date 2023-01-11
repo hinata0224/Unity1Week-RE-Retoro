@@ -86,7 +86,7 @@ namespace PackMan_Player
             hp.Value = _hp;
             if(_hp <= 0)
             {
-
+                gameOver.OnNext(Unit.Default);
             }
             transform.position = initpos.position;
         }

@@ -38,7 +38,7 @@ namespace Tetris_Block
         private Subject<Unit> gameOver = new();
 
         private TimerModel timer = new();
-        private BlockData data;
+        //private BlockData data;
 
         void Start()
         {
@@ -69,6 +69,7 @@ namespace Tetris_Block
             }
             else
             {
+                Debug.Log(createNums.Count);
                 SetNextMino();
             }
 
@@ -95,10 +96,14 @@ namespace Tetris_Block
         {
             for (int i = 0; i < createNums.Count; i++)
             {
+                createNums[i].transform.position = nextMinoPos[i].position;
                 if (i == 0) {
+                    Debug.Log(createNums[i].name);
                     ScoreModel model = new();
                     int score = model.GetScorePoint();
                     float blockInterval = 1f;
+
+                    BlockData data;
 
                     switch (score)
                     {
@@ -114,29 +119,31 @@ namespace Tetris_Block
                     }
 
                     data = createNums[i].GetComponent<BlockData>();
-                    TetrisInputController.SetBlockData(data);
-                    data.Init(grid, blockInterval);
 
                     data.GetNextCreate()
+                        .First()
                     .Subscribe(x =>
                     {
                         timer.StartTimer(interval);
-                        data.DestroyObj();
                     }).AddTo(createNums[i]);
 
                     data.GetGameOver()
+                        .First()
                     .Subscribe(x =>
                     {
                         gameOver.OnNext(Unit.Default);
                     }).AddTo(createNums[i]);
+
+                    TetrisInputController.SetBlockData(data);
+                    data.Init(grid, blockInterval);
                 }
-                createNums[i].transform.position = nextMinoPos[i].position;
             }
         }
 
 
         private void DeleteMino()
         {
+            Debug.Log("Delete");
             createNums.RemoveAt(0);
             AddCreate(5);
         }
