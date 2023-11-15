@@ -1,6 +1,7 @@
 using UnityEngine;
 using UniRx;
 using System;
+using UnityEngine.UI;
 
 namespace Tetris_UI
 {
@@ -8,28 +9,25 @@ namespace Tetris_UI
     {
         [SerializeField]
         private GameObject Menu;
+        [SerializeField]
+        private Button _openButton;
+        private bool isOpneMenu = true;
 
-        private Subject<bool> openMenu= new();
-        void Start()
+        private Subject<bool> openMenu = new();
+        public IObservable<bool> IsOpenMenu => openMenu;
+
+        public void Initializ()
         {
-            Menu.SetActive(false);
+            _openButton.OnButtonObservable()
+                .Subscribe(_ => DisplayMenu())
+                .AddTo(gameObject);
         }
 
-        public void DisplayMenu()
+        private void DisplayMenu()
         {
-            Menu.SetActive(true);
-            openMenu.OnNext(true);
-        }
-
-        public void CloseMenu()
-        {
-            Menu.SetActive(false);
-            openMenu.OnNext(false);
-        }
-
-        public IObservable<bool> GetOpenMenu()
-        {
-            return openMenu;
+            Menu.SetActive(isOpneMenu);
+            openMenu.OnNext(isOpneMenu);
+            isOpneMenu = !isOpneMenu;
         }
     }
 }
