@@ -1,38 +1,46 @@
+using UnityEngine;
 using UniRx;
 using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using UnityEngine;
 
-
-namespace Other_System
+namespace Other_Script
 {
     public class TimerModel
     {
-        private Subject<Unit> endTimer = new Subject<Unit>();
+        private float limit;
+        private float count = 0;
 
-        private IDisposable clock;
+        private Subject<Unit> endTimer = new();
 
-        public void StartTimer(float count)
+        private CompositeDisposable disposables = new();
+
+        public void SetTimer(float timeLimit)
         {
-            clock = Observable.Timer(TimeSpan.FromSeconds(count))
-                .Subscribe(x => endTimer.OnNext(Unit.Default));
+            limit = timeLimit;
+
+            Observable.EveryUpdate()
+                .Subscribe(_ =>
+                {
+                    count += Time.deltaTime;
+                    if (count > limit)
+                    {
+                        endTimer.OnNext(Unit.Default);
+                    }
+                }).AddTo(disposables);
         }
 
-        public void StopTimer()
+        public void RestertTimer()
         {
-            clock.Dispose();
+            count = 0;
         }
 
         public void EndTimer()
         {
-            clock.Dispose();
-            endTimer.Dispose();
+            disposables.Dispose();
         }
 
         public IObservable<Unit> GetEndTimer()
         {
-            return endTimer;
+            return endTimer.AddTo(disposables);
         }
     }
 }
