@@ -7,20 +7,15 @@ namespace Tetris_UI
 {
     public class ResultController : MonoBehaviour
     {
-        [SerializeField, Header("ƒŠƒUƒ‹ƒg‚ÌeƒIƒuƒWƒFƒNƒg")]
+        [SerializeField]
         private GameObject rezult;
 
-        [SerializeField, Header("ƒŠƒUƒ‹ƒgƒXƒRƒA")]
+        [SerializeField]
         private TextMeshProUGUI scoreText;
 
         private ScoreModel model = new();
 
         private static Subject<Unit> gameOver = new();
-
-        private void Awake()
-        {
-            rezult.SetActive(false);
-        }
 
         private void Start()
         {
@@ -32,7 +27,7 @@ namespace Tetris_UI
         public void GameOver()
         {
             rezult.SetActive(true);
-            scoreText.text = "¡‰ñ‚ÌƒXƒRƒA‚Í" + model.GetScorePoint() + "‚Å‚·B";
+            scoreText.text = "æœ€çµ‚ã‚¹ã‚³ã‚¢ï¼š" + model.GetScorePoint();
             Time.timeScale = 0;
         }
 

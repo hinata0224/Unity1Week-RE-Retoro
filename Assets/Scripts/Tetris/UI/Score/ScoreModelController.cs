@@ -7,6 +7,7 @@ namespace Tetris_UI
     {
         [SerializeField]
         private TextMeshProUGUI scoreText;
+
         public void SetText(int score)
         {
             scoreText.text = "Score : " + score;

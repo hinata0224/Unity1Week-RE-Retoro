@@ -6,7 +6,7 @@ namespace Tetris_UI
 {
     public class ResultControllerPresenter : MonoBehaviour
     {
-        [SerializeField, Header("�Q�ƃX�N���v�g")]
+        [SerializeField]
         private BlockManager block;
 
         [SerializeField]
@@ -17,7 +17,6 @@ namespace Tetris_UI
             block.IsGameOver
                 .Subscribe(x =>
                 {
-                    Debug.Log("ssss");
                     controller.GameOver();
                 })
                 .AddTo(block);

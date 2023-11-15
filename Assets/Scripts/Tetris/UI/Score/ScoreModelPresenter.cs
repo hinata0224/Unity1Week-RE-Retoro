@@ -11,8 +11,11 @@ namespace Tetris_UI
         private ScoreModel model = new();
         void Start()
         {
+            ScoreModel.ResetScore();
+
             controller.SetText(model.GetScorePoint());
-            model.GetScore()
+
+            model.Score
                 .Subscribe(x => controller.SetText(x))
                 .AddTo(this);
         }
