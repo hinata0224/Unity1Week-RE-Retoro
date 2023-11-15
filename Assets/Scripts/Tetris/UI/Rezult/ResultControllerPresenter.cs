@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using Tetris_Block;
@@ -8,19 +6,19 @@ namespace Tetris_UI
 {
     public class ResultControllerPresenter : MonoBehaviour
     {
-        [SerializeField, Header("ŽQÆƒXƒNƒŠƒvƒg")]
-        private BlockInstance block;
+        [SerializeField, Header("ï¿½Qï¿½ÆƒXï¿½Nï¿½ï¿½ï¿½vï¿½g")]
+        private BlockManager block;
 
         [SerializeField]
         private ResultController controller;
 
         void Start()
         {
-            block.GetGameOver()
-                .Subscribe(x => 
+            block.IsGameOver
+                .Subscribe(x =>
                 {
                     Debug.Log("ssss");
-                    controller.GameOver(); 
+                    controller.GameOver();
                 })
                 .AddTo(block);
         }

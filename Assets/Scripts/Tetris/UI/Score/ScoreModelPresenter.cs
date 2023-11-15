@@ -1,10 +1,11 @@
 using UnityEngine;
 using UniRx;
 
-namespace Tetris_UI {
+namespace Tetris_UI
+{
     public class ScoreModelPresenter : MonoBehaviour
     {
-        [SerializeField, Header("参照スクリプト")]
+        [SerializeField]
         private ScoreModelController controller;
 
         private ScoreModel model = new();
