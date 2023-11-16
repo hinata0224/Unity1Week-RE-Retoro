@@ -4,22 +4,22 @@ using Tetris_Block;
 
 namespace Tetris_UI
 {
-    public class ResultControllerPresenter : MonoBehaviour
+    public class ResultViewPresenter : MonoBehaviour
     {
         [SerializeField]
-        private BlockManager block;
+        private BlockManager _block;
 
         [SerializeField]
-        private ResultController controller;
+        private ResultView _view;
 
         void Start()
         {
-            block.IsGameOver
+            _block.IsGameOver
                 .Subscribe(x =>
                 {
-                    controller.GameOver();
+                    _view.GameOver();
                 })
-                .AddTo(block);
+                .AddTo(gameObject);
         }
     }
 }

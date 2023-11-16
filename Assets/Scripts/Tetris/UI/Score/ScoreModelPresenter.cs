@@ -6,17 +6,17 @@ namespace Tetris_UI
     public class ScoreModelPresenter : MonoBehaviour
     {
         [SerializeField]
-        private ScoreModelController controller;
+        private ScoreModelView _view;
 
         private ScoreModel model = new();
         void Start()
         {
             ScoreModel.ResetScore();
 
-            controller.SetText(model.GetScorePoint());
+            _view.SetText(model.GetScorePoint());
 
             model.Score
-                .Subscribe(x => controller.SetText(x))
+                .Subscribe(x => _view.SetText(x))
                 .AddTo(this);
         }
     }

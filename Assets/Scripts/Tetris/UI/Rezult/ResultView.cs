@@ -1,11 +1,10 @@
 using UnityEngine;
 using TMPro;
 using UniRx;
-using System;
 
 namespace Tetris_UI
 {
-    public class ResultController : MonoBehaviour
+    public class ResultView : MonoBehaviour
     {
         [SerializeField]
         private GameObject rezult;
