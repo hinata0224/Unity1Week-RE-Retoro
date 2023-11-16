@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace _SceneManager
+namespace SceneController
 {
-    public class SceneMangerController : MonoBehaviour
+    public class SceneMangerController : SingletonMonoBehaviour<SceneMangerController>
     {
         public void GoTitle()
         {
@@ -20,7 +20,7 @@ namespace _SceneManager
         public void GoPacMan()
         {
             Time.timeScale = 1;
-            SceneManager.LoadSceneAsync("PacMan",LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync("PacMan", LoadSceneMode.Single);
         }
     }
 }

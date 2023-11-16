@@ -1,3 +1,5 @@
+// NOTE: WebGL以外でデータを読み込むよう
+
 //using System.Collections.Generic;
 //using UniRx;
 //using UnityEngine;
