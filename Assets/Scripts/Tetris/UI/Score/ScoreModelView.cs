@@ -3,10 +3,11 @@ using TMPro;
 
 namespace Tetris_UI
 {
-    public class ScoreModelController : MonoBehaviour
+    public class ScoreModelView : MonoBehaviour
     {
         [SerializeField]
         private TextMeshProUGUI scoreText;
+
         public void SetText(int score)
         {
             scoreText.text = "Score : " + score;

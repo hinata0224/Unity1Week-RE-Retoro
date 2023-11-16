@@ -5,18 +5,20 @@ namespace Tetris_UI
 {
     public class MenuUIPresenter : MonoBehaviour
     {
-        [SerializeField, Header("参照スクリプト")]
+        [SerializeField]
         private MenuUIController controller;
 
         private MenuUIModel model = new();
         void Start()
         {
-            controller.GetOpenMenu()
+            controller.Initializ();
+
+            controller.IsOpenMenu
                 .Where(x => x)
                 .Subscribe(x => model.StopTime())
                 .AddTo(this);
 
-            controller.GetOpenMenu()
+            controller.IsOpenMenu
                 .Where(x => !x)
                 .Subscribe(x => model.StartTime())
                 .AddTo(this);
