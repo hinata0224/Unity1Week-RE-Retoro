@@ -12,4 +12,5 @@ public static class TagName
     public const string GameController = "GameController";
     public const string Item = "Item";
     public const string Enemy = "Enemy";
+    public const string ItemController = "ItemController";
 }

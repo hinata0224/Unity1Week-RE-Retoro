@@ -19,6 +19,14 @@ namespace PackMan_UI
         [SerializeField, Header("�|�[�Y�{�^��")]
         private GameObject poseButton;
 
+        private PlayerController _playerController;
+        private ItemController _itemController;
+
+        private void Awake()
+        {
+            _playerController = GameObject.FindGameObjectWithTag(TagName.Player).GetComponent<PlayerController>();
+            _itemController = GameObject.FindGameObjectWithTag(TagName.ItemController).GetComponent<ItemController>();
+        }
 
         void Start()
         {
@@ -26,13 +34,13 @@ namespace PackMan_UI
             gameClearResult.SetActive(false);
             poos.SetActive(false);
 
-            PlayerController.IsGameOver
+            _playerController.IsGameOver
                 .Subscribe(x =>
                 {
                     gameOverResult.SetActive(true);
                 }).AddTo(this);
 
-            ItemController.GetGameClear()
+            _itemController.IsGameCler
                 .Subscribe(x =>
                 {
                     gameClearResult.SetActive(true);

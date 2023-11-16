@@ -6,6 +6,7 @@ using InputProvider;
 namespace PackMan_Player
 {
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(TargetSerch))]
     public class PlayerController : MonoBehaviour
     {
         [Header("スピード調整")]
@@ -25,8 +26,8 @@ namespace PackMan_Player
         private Rigidbody rb;
         private IInputProvider inputProvider;
 
-        private static Subject<Unit> gameOver = new();
-        public static IObservable<Unit> IsGameOver => gameOver;
+        private Subject<Unit> gameOver = new();
+        public IObservable<Unit> IsGameOver => gameOver;
 
         private void Awake()
         {
