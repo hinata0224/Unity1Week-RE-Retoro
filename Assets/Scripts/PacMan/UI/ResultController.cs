@@ -7,17 +7,12 @@ namespace PackMan_UI
 {
     public class ResultController : MonoBehaviour
     {
-        [SerializeField, Header("Result���")]
-        private GameObject gameOverResult;
-
-        [SerializeField, Header("gameClear���")]
-        private GameObject gameClearResult;
-
-        [SerializeField, Header("�|�[�Y���")]
-        private GameObject poos;
-
-        [SerializeField, Header("�|�[�Y�{�^��")]
-        private GameObject poseButton;
+        // NOTE: WebGLBuildのためAddressableではなく参照
+        [SerializeField]
+        private GameObject _gameOverResult;
+        // NOTE: WebGLBuildのためAddressableではなく参照
+        [SerializeField]
+        private GameObject _gameClearResult;
 
         private PlayerController _playerController;
         private ItemController _itemController;
@@ -30,35 +25,20 @@ namespace PackMan_UI
 
         void Start()
         {
-            gameOverResult.SetActive(false);
-            gameClearResult.SetActive(false);
-            poos.SetActive(false);
+            _gameOverResult.SetActive(false);
+            _gameClearResult.SetActive(false);
 
             _playerController.IsGameOver
                 .Subscribe(x =>
                 {
-                    gameOverResult.SetActive(true);
-                }).AddTo(this);
+                    _gameOverResult.SetActive(true);
+                }).AddTo(gameObject);
 
             _itemController.IsGameCler
                 .Subscribe(x =>
                 {
-                    gameClearResult.SetActive(true);
-                }).AddTo(this);
-        }
-
-        public void DisplayPoos()
-        {
-            Time.timeScale = 0;
-            poos.SetActive(true);
-            poseButton.SetActive(false);
-        }
-
-        public void ClosePoos()
-        {
-            Time.timeScale = 1;
-            poos.SetActive(false);
-            poseButton.SetActive(true);
+                    _gameClearResult.SetActive(true);
+                }).AddTo(gameObject);
         }
     }
 }
