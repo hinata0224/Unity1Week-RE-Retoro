@@ -7,16 +7,16 @@ namespace PackMan_UI
 {
     public class ResultController : MonoBehaviour
     {
-        [SerializeField, Header("Result‰æ–Ê")]
+        [SerializeField, Header("Resultï¿½ï¿½ï¿½")]
         private GameObject gameOverResult;
 
-        [SerializeField, Header("gameClear‰æ–Ê")]
+        [SerializeField, Header("gameClearï¿½ï¿½ï¿½")]
         private GameObject gameClearResult;
 
-        [SerializeField, Header("ƒ|[ƒY‰æ–Ê")]
+        [SerializeField, Header("ï¿½|ï¿½[ï¿½Yï¿½ï¿½ï¿½")]
         private GameObject poos;
 
-        [SerializeField, Header("ƒ|[ƒYƒ{ƒ^ƒ“")]
+        [SerializeField, Header("ï¿½|ï¿½[ï¿½Yï¿½{ï¿½^ï¿½ï¿½")]
         private GameObject poseButton;
 
 
@@ -26,7 +26,7 @@ namespace PackMan_UI
             gameClearResult.SetActive(false);
             poos.SetActive(false);
 
-            PlayerController.GetGameOver()
+            PlayerController.IsGameOver
                 .Subscribe(x =>
                 {
                     gameOverResult.SetActive(true);

@@ -1,7 +1,8 @@
 using UnityEngine;
 using PackMan_Item;
 
-namespace PackMan_Player {
+namespace PackMan_Player
+{
     public class TargetSerch : MonoBehaviour
     {
         [SerializeField]
@@ -11,7 +12,7 @@ namespace PackMan_Player {
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
-                controller.Dead();
+                controller.HitDamage();
             }
             if (other.gameObject.CompareTag("Item"))
             {

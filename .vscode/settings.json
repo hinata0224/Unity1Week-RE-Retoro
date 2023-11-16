@@ -51,5 +51,15 @@
         "temp/": true,
         "Temp/": true
     },
+    "editor.codeLens": false,
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "editor.tabSize": 4,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.useModernNet": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
     "dotnet.defaultSolution": "Unity1Week2022_12.sln"
 }

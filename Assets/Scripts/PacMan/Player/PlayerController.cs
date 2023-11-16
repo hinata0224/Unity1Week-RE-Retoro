@@ -1,6 +1,7 @@
 using UnityEngine;
 using UniRx;
 using System;
+using InputProvider;
 
 namespace PackMan_Player
 {
@@ -13,7 +14,8 @@ namespace PackMan_Player
         [SerializeField]
         private int _hp = 3;
 
-        private static ReactiveProperty<int> hp = new();
+        private ReactiveProperty<int> _rpHp = new();
+        public IReadOnlyReactiveProperty<int> RPHp => _rpHp;
 
         [SerializeField]
         private Transform initpos;
@@ -21,28 +23,35 @@ namespace PackMan_Player
         private Vector3 move;
 
         private Rigidbody rb;
+        private IInputProvider inputProvider;
 
         private static Subject<Unit> gameOver = new();
+        public static IObservable<Unit> IsGameOver => gameOver;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
-            hp.Value = _hp;
+            inputProvider = UnityInputProvider.Instance;
+            _rpHp.Value = _hp;
         }
 
         private void Start()
         {
-            PacManPlayerInput.GetInput()
+            inputProvider.OnMoveObservable
                 .Subscribe(x =>
                 {
                     DirextionSet(x);
-                }).AddTo(this);
+                }).AddTo(gameObject);
         }
         void Update()
         {
             PlayerMove();
         }
 
+        /// <summary>
+        /// 移動方向に向く
+        /// </summary>
+        /// <param name="vec"></param>
         private void DirextionSet(Vector2 vec)
         {
             rb.velocity = new(0, 0, 0);
@@ -59,7 +68,7 @@ namespace PackMan_Player
                     pos.x -= 10;
                 }
             }
-            else if(vec.y != 0)
+            else if (vec.y != 0)
             {
                 if (Mathf.Sign(vec.y) == 1)
                 {
@@ -73,6 +82,9 @@ namespace PackMan_Player
             transform.LookAt(pos);
         }
 
+        /// <summary>
+        /// 移動処理
+        /// </summary>
         private void PlayerMove()
         {
             move = new(0, 0, spead);
@@ -80,25 +92,18 @@ namespace PackMan_Player
             rb.velocity = move;
         }
 
-        public void Dead()
+        /// <summary>
+        /// ダメージ処理
+        /// </summary>
+        public void HitDamage()
         {
             _hp--;
-            hp.Value = _hp;
-            if(_hp <= 0)
+            _rpHp.Value = _hp;
+            if (_hp <= 0)
             {
                 gameOver.OnNext(Unit.Default);
             }
             transform.position = initpos.position;
-        }
-
-        public static IObservable<int> GetHP()
-        {
-            return hp;
-        }
-
-        public static IObservable<Unit> GetGameOver()
-        {
-            return gameOver;
         }
     }
 }

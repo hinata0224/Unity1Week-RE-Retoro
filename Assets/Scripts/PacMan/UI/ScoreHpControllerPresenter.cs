@@ -10,6 +10,13 @@ namespace PackMan_UI
         [SerializeField]
         private ScoreHPController controller;
 
+        private PlayerController playerController;
+
+        private void Awake()
+        {
+            playerController = GameObject.FindWithTag(TagName.Player).GetComponent<PlayerController>();
+        }
+
 
         private void Start()
         {
@@ -19,7 +26,7 @@ namespace PackMan_UI
                     controller.SetScore(x);
                 }).AddTo(this);
 
-            PlayerController.GetHP()
+            playerController.RPHp
                 .Subscribe(x =>
                 {
                     controller.SetHp(x);
