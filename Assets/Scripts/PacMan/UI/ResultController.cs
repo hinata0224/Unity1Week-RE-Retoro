@@ -7,50 +7,38 @@ namespace PackMan_UI
 {
     public class ResultController : MonoBehaviour
     {
-        [SerializeField, Header("Result画面")]
-        private GameObject gameOverResult;
+        // NOTE: WebGLBuild縺ｮ縺溘ａAddressable縺ｧ縺ｯ縺ｪ縺丞盾辣ｧ
+        [SerializeField]
+        private GameObject _gameOverResult;
+        // NOTE: WebGLBuild縺ｮ縺溘ａAddressable縺ｧ縺ｯ縺ｪ縺丞盾辣ｧ
+        [SerializeField]
+        private GameObject _gameClearResult;
 
-        [SerializeField, Header("gameClear画面")]
-        private GameObject gameClearResult;
+        private PlayerController _playerController;
+        private ItemController _itemController;
 
-        [SerializeField, Header("ポーズ画面")]
-        private GameObject poos;
-
-        [SerializeField, Header("ポーズボタン")]
-        private GameObject poseButton;
-
+        private void Awake()
+        {
+            _playerController = GameObject.FindGameObjectWithTag(TagName.Player).GetComponent<PlayerController>();
+            _itemController = GameObject.FindGameObjectWithTag(TagName.ItemController).GetComponent<ItemController>();
+        }
 
         void Start()
         {
-            gameOverResult.SetActive(false);
-            gameClearResult.SetActive(false);
-            poos.SetActive(false);
+            _gameOverResult.SetActive(false);
+            _gameClearResult.SetActive(false);
 
-            PlayerController.GetGameOver()
+            _playerController.IsGameOver
                 .Subscribe(x =>
                 {
-                    gameOverResult.SetActive(true);
-                }).AddTo(this);
+                    _gameOverResult.SetActive(true);
+                }).AddTo(gameObject);
 
-            ItemController.GetGameClear()
+            _itemController.IsGameCler
                 .Subscribe(x =>
                 {
-                    gameClearResult.SetActive(true);
-                }).AddTo(this);
-        }
-
-        public void DisplayPoos()
-        {
-            Time.timeScale = 0;
-            poos.SetActive(true);
-            poseButton.SetActive(false);
-        }
-
-        public void ClosePoos()
-        {
-            Time.timeScale = 1;
-            poos.SetActive(false);
-            poseButton.SetActive(true);
+                    _gameClearResult.SetActive(true);
+                }).AddTo(gameObject);
         }
     }
 }

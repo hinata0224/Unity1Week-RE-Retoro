@@ -7,10 +7,9 @@ namespace Tetris_UI
 {
     public class MenuUIController : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject Menu;
-        [SerializeField]
-        private Button _openButton;
+        [SerializeField] private GameObject Menu;
+        [SerializeField] private Button _openButton;
+
         private bool isOpneMenu = true;
 
         private Subject<bool> openMenu = new();

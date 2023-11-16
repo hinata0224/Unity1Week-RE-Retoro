@@ -6,9 +6,11 @@ namespace PackMan_Item
 {
     public class ItemController : MonoBehaviour
     {
-        private static ReactiveProperty<int> itemCount = new(0);
+        private ReactiveProperty<int> _rpItemCount = new(0);
+        public IReadOnlyReactiveProperty<int> RPItemCount => _rpItemCount;
 
-        private static Subject<Unit> gameClear = new();
+        private Subject<Unit> gameClear = new();
+        public IObservable<Unit> IsGameCler => gameClear;
 
         private void Awake()
         {
@@ -17,29 +19,19 @@ namespace PackMan_Item
 
         private void Init()
         {
-            foreach(Transform child in gameObject.transform)
+            foreach (Transform child in gameObject.transform)
             {
-                itemCount.Value++;
+                _rpItemCount.Value++;
             }
         }
 
-        public static void GetItem()
+        public void GetItem()
         {
-            itemCount.Value--;
-            if(itemCount.Value == 0)
+            _rpItemCount.Value--;
+            if (_rpItemCount.Value == 0)
             {
                 gameClear.OnNext(Unit.Default);
             }
-        }
-
-        public static IObservable<int> GetItemCount()
-        {
-            return itemCount;
-        }
-
-        public static IObservable<Unit> GetGameClear()
-        {
-            return gameClear;
         }
     }
 }

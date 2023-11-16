@@ -1,21 +1,29 @@
 using UnityEngine;
 using PackMan_Item;
 
-namespace PackMan_Player {
+namespace PackMan_Player
+{
     public class TargetSerch : MonoBehaviour
     {
-        [SerializeField]
-        PlayerController controller;
+        private PlayerController _playerController;
+        private ItemController _itemController;
+
+        private void Awake()
+        {
+            _playerController = GetComponent<PlayerController>();
+            _itemController = GameObject.FindGameObjectWithTag(TagName.ItemController).GetComponent<ItemController>();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag(TagName.Enemy))
             {
-                controller.Dead();
+                _playerController.HitDamage();
             }
-            if (other.gameObject.CompareTag("Item"))
+            if (other.gameObject.CompareTag(TagName.Item))
             {
-                ItemController.GetItem();
+                Debug.Log("aaa");
+                _itemController.GetItem();
                 Destroy(other.gameObject);
             }
         }

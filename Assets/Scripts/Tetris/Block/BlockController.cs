@@ -49,7 +49,7 @@ namespace Tetris_Block
             holedInterval = holed;
             grid = _grid;
 
-            _inputProvider.OnMoveObservable
+            _inputProvider.OnHorizontalObservable
                 .Where(x => x != 0)
                 .Subscribe(x => BlockMove(x))
                 .AddTo(gameObject);
