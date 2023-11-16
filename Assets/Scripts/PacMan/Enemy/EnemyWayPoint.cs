@@ -16,7 +16,7 @@ namespace PackMan_Enemy
 
         private void Init()
         {
-            foreach(Transform child in gameObject.transform)
+            foreach (Transform child in gameObject.transform)
             {
                 waypoints.Add(child);
             }
@@ -24,8 +24,8 @@ namespace PackMan_Enemy
 
         public static Transform InitCallNumber()
         {
-            int call = Random.Range(0,waypoints.Count);
-            if(callnum.Count != 0)
+            int call = Random.Range(0, waypoints.Count);
+            if (callnum.Count != 0)
             {
                 while (true)
                 {
@@ -45,7 +45,7 @@ namespace PackMan_Enemy
 
         public static Transform GetWayPoint(Transform point)
         {
-            for(int i = 0; i < waypoints.Count; i++)
+            for (int i = 0; i < waypoints.Count; i++)
             {
                 if (waypoints[i] == point)
                 {

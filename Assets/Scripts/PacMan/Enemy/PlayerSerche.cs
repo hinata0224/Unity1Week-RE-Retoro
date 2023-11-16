@@ -10,7 +10,7 @@ namespace PackMan_Enemy
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag(TagName.Player))
             {
                 controller.TargetPlayer(other.transform.position);
             }

@@ -24,13 +24,14 @@ namespace PackMan_Enemy
         {
             Init();
 
-            rootend.Subscribe(x => Circulation())
-                .AddTo(this);
+            rootend
+                .Subscribe(x => Circulation())
+                .AddTo(gameObject);
         }
 
         public void UpdateLoop()
         {
-            if(agent.remainingDistance <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 rootend.OnNext(Unit.Default);
             }
@@ -50,11 +51,6 @@ namespace PackMan_Enemy
         {
             agent.speed = speed;
             agent.SetDestination(EnemyWayPoint.InitCallNumber().position);
-        }
-
-        public IObservable<Unit> GetRootEnd()
-        {
-            return rootend;
         }
     }
 }
