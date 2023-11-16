@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 8234423721572936444}
   - component: {fileID: 8234423721572936419}
   - component: {fileID: 8234423721572936418}
+  - component: {fileID: 6167118762384933131}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -457,19 +458,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8234423721572936419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoTitle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &6167118762384933131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234423721572936416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 0
 --- !u!1 &8234423721599569271
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +619,7 @@ GameObject:
   - component: {fileID: 8234423721682779264}
   - component: {fileID: 8234423721682779271}
   - component: {fileID: 8234423721682779270}
+  - component: {fileID: 1587888629601943284}
   m_Layer: 5
   m_Name: OneMore
   m_TagString: Untagged
@@ -726,19 +729,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8234423721682779271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoPacMan
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1587888629601943284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234423721682779268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 2
 --- !u!1 &8234423721759223485
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,8 +914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 500, y: 230}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 408, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8234423721863688024
 GameObject:
@@ -1026,8 +1030,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 500, y: 230}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 408, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8234423722035060903
 GameObject:
@@ -1041,6 +1045,7 @@ GameObject:
   - component: {fileID: 8234423722035060899}
   - component: {fileID: 8234423722035060898}
   - component: {fileID: 8234423722035060897}
+  - component: {fileID: 961412301278395086}
   m_Layer: 5
   m_Name: OneMore
   m_TagString: Untagged
@@ -1163,6 +1168,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &961412301278395086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234423722035060903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 2
 --- !u!1 &8234423722121027842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1409,7 @@ GameObject:
   - component: {fileID: 8234423722565300469}
   - component: {fileID: 8234423722565300468}
   - component: {fileID: 8234423722565300475}
+  - component: {fileID: 2502129975100445403}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1500,19 +1519,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8234423722565300468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoTitle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &2502129975100445403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234423722565300473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 0
 --- !u!1 &8234423722744705579
 GameObject:
   m_ObjectHideFlags: 0

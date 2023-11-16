@@ -18,14 +18,9 @@ namespace PackMan_Enemy
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
-        }
-
-        void Start()
-        {
-            Init();
-
-            rootend
-                .Subscribe(x => Circulation())
+            EnemyWayPoint.IsInitEnd
+                .First()
+                .Subscribe(_ => Init())
                 .AddTo(gameObject);
         }
 
@@ -51,6 +46,10 @@ namespace PackMan_Enemy
         {
             agent.speed = speed;
             agent.SetDestination(EnemyWayPoint.InitCallNumber().position);
+
+            rootend
+                .Subscribe(x => Circulation())
+                .AddTo(gameObject);
         }
     }
 }

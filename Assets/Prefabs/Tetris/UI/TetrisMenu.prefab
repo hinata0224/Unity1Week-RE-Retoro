@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6605843319811355072}
   - component: {fileID: 6605843319811355075}
   - component: {fileID: 6605843319811355074}
+  - component: {fileID: 3419874127652163736}
   m_Layer: 5
   m_Name: GoTitle
   m_TagString: Untagged
@@ -121,19 +122,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6605843319811355075}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoTitle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3419874127652163736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605843319811355076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 0
 --- !u!1 &6605843319877269818
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +893,7 @@ GameObject:
   - component: {fileID: 6605843320718278025}
   - component: {fileID: 6605843320718278024}
   - component: {fileID: 6605843320718278027}
+  - component: {fileID: 994974733170054374}
   m_Layer: 5
   m_Name: GoStart
   m_TagString: Untagged
@@ -1000,19 +1003,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6605843320718278024}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoTetrisStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &994974733170054374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605843320718278029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 1
 --- !u!1 &6605843320813643508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1029,7 @@ GameObject:
   - component: {fileID: 6605843320813643504}
   - component: {fileID: 6605843320813643507}
   - component: {fileID: 6605843320813643506}
+  - component: {fileID: 740910340062751366}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1134,19 +1139,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6605843320813643507}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoTitle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &740910340062751366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605843320813643508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 0
 --- !u!1 &6605843320890059155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1618,7 @@ GameObject:
   - component: {fileID: 6605843321440486936}
   - component: {fileID: 6605843321440486939}
   - component: {fileID: 6605843321440486938}
+  - component: {fileID: 2778345100672842293}
   m_Layer: 5
   m_Name: ReStart
   m_TagString: Untagged
@@ -1721,19 +1728,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6605843321440486939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _SceneManager.SceneMangerController, Assembly-CSharp
-        m_MethodName: GoTetrisStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &2778345100672842293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605843321440486940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443e9ad8788d4944194de2a76db8aa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveScene: 1
 --- !u!1 &6605843321586947862
 GameObject:
   m_ObjectHideFlags: 0

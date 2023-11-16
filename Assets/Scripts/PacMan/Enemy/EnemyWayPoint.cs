@@ -1,13 +1,15 @@
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 namespace PackMan_Enemy
 {
     public class EnemyWayPoint : MonoBehaviour
     {
-        private static List<Transform> waypoints = new(29);
+        private static List<Transform> waypoints;
 
         private static List<int> callnum = new(4);
+        public static Subject<Unit> IsInitEnd = new Subject<Unit>();
 
         private void Awake()
         {
@@ -16,10 +18,12 @@ namespace PackMan_Enemy
 
         private void Init()
         {
+            waypoints = new(29);
             foreach (Transform child in gameObject.transform)
             {
                 waypoints.Add(child);
             }
+            IsInitEnd.OnNext(Unit.Default);
         }
 
         public static Transform InitCallNumber()

@@ -22,6 +22,7 @@ namespace PackMan_Player
             }
             if (other.gameObject.CompareTag(TagName.Item))
             {
+                Debug.Log("aaa");
                 _itemController.GetItem();
                 Destroy(other.gameObject);
             }
